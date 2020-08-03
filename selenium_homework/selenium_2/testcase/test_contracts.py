@@ -12,8 +12,9 @@ class TestContracts:
     def setup(self):
         self.index = Index()
 
-    @pytest.mark.parametrize("name,account,phone", [("test4", "test44", "13323456744")])
+    @pytest.mark.parametrize("name,account,phone", [("test11", "test11", "13323456711")])
     def test_add_member(self, name, account, phone):
         self.index.click_add_member().save_member(name, account, phone)
         sleep(2)
-        assert self.index.goto_contracts().get_first_name() == name
+        member_name = self.index.goto_contracts().get_all_name()
+        assert name in member_name

@@ -6,7 +6,10 @@ from selenium_homework.selenium_2.page.basepage import BasePage
 
 
 class Contracts(BasePage):
-    _ele_name = (By.CSS_SELECTOR,"tbody#member_list>tr:nth-child(2)")
-    def get_first_name(self):
-        return self._driver.find_element(self._ele_name).text
+    _ele_name = (By.CSS_SELECTOR,"tbody#member_list>tr>td:nth-child(2)")
+    def get_all_name(self):
+        all_name = []
+        for item in self.finds(self._ele_name):
+            all_name.append(item.text)
+        return all_name
 

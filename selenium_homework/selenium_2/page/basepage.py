@@ -11,7 +11,8 @@ class BasePage:
             self._driver = driver
             chrome_options = webdriver.ChromeOptions()
             chrome_options.debugger_address = "127.0.0.1:9222"
-            self._driver = webdriver.Chrome(chrome_options=chrome_options,executable_path="D:\\selenium\\chromedriver.exe")
+            # self._driver = webdriver.Chrome(chrome_options=chrome_options)
+            self._driver = webdriver.Chrome(options=chrome_options,executable_path="D:\\selenium\\chromedriver.exe")
             self._driver.get("https://work.weixin.qq.com/wework_admin/frame")
         else:
             self._driver = driver
