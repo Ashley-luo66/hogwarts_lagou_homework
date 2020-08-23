@@ -5,7 +5,7 @@ import requests
 
 
 class BaseApi():
-    def send_req(self,req_info:dict):
+    def send_request(self,req_info:dict):
         """
 
         :param req_info: 以字典形式传入请求信息
@@ -14,4 +14,10 @@ class BaseApi():
         return requests.request(**req_info).json()
 
     def jsonpath(self,json_obj,expr):
+        """
+
+        :param json_obj: json串
+        :param expr: jsonpath表达式
+        :return:
+        """
         return jsonpath(json_obj,expr)
