@@ -3,6 +3,7 @@
 from requests_homework.requests_2.api.tag import Tag
 from requests_homework.requests_2.base.base_api import BaseApi
 
+
 class TestTag(BaseApi):
 
     @classmethod
@@ -15,13 +16,14 @@ class TestTag(BaseApi):
         assert res == 0
 
     def test_create_tag(self):
-        res = self.tag.create_tag(tagname="测试tagName",tagid=1)
-        assert res == 0
+        res = self.tag.create_tag(tagname="测试tagName", tagid=1)
+        assert self.tag.jsonpath(res,"$.errcode")[0] == 0
 
     def test_update_tag(self):
-        res = self.tag.update_tag(tagname="测试更新",tagid=1)
+        res = self.tag.update_tag(tagname="测试更新", tagid=1)
         assert res == 0
 
     def test_delete_tag(self):
         res = self.tag.delete_tag(tagid=1)
-        assert res == 0
+        assert self.tag.jsonpath(res,"$.errcode")[0]
+
